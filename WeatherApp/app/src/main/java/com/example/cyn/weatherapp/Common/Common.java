@@ -17,7 +17,6 @@ public class Common {
         return sb.toString();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static String unixTimeStampToDateTime(double unix) {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date date = new Date((long) unix * 1000);
