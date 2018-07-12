@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         @Override
         protected String doInBackground(String... strings) {
-            String stream = null;
             String urlString = strings[0];
 
             Helper http = new Helper();
@@ -145,6 +144,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            if (s == null)
+            {
+                pd.setTitle("Sorry m8 can't seem to get info from server");
+                Log.e(":C", "Log test");
+                return;
+            }
             if (s.contains("Error: Not found city"))
             {
                 pd.dismiss();
